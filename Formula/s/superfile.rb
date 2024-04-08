@@ -5,6 +5,7 @@ class Superfile < Formula
   sha256 "140ee260c515090c1b540b34e56d8836a84fccdd3232132312b3ebbb06ae537f"
   depends_on "go" => :build
   depends_on "exiftool"
+  license "MIT"
 
   def install
     Dir.chdir "src" do
