@@ -16,6 +16,6 @@ class Superfile < Formula
 
   test do
     output = shell_output("#{bin}/spf -v")
-    assert_match("superfile version v1.0.0", output)
+    assert_match("superfile version v1.0.1", output)
   end
 end
