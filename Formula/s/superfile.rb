@@ -6,7 +6,7 @@ class Superfile < Formula
   license "MIT"
   depends_on "go" => :build
   depends_on "exiftool"
-  
+
   def install
     Dir.chdir "src" do
       system "go", "build", "-o", "../bin/spf"
