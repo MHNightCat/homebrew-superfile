@@ -7,7 +7,9 @@ class Superfile < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w", output: bin/"spf"), ".../src"
+    cd "src" do
+      system "go", "build", *std_go_args(ldflags: "-s -w", output: bin/"spf")
+    end
   end
 
   test do
