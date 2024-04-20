@@ -7,14 +7,11 @@ class Superfile < Formula
   depends_on "go" => :build
 
   def install
-    Dir.chdir "src" do
-      system "go", "build", "-o", "../bin/spf"
-    end
-    bin.install Dir["bin/*"]
+    system "go", "build", *std_go_args(ldflags: "-s -w", output: bin/"spf"), ".../src"
   end
 
   test do
-    output = shell_output("#{bin}/spf -v")
-    assert_match("superfile version v1.1.0", output)
+    # superfile is a GUI application
+    assert_match version.to_s, shell_output("#{bin}/spf -v")
   end
 end
